@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report6" language="groovy" pageWidth="684" pageHeight="792" columnWidth="684" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="310"/>
+    <parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\new_pknpx\\reports\\"]]></defaultValueExpression>
+    </parameter>
+    <queryString>
+		<![CDATA[SELECT
+     gl_journal_hd.`company_code` AS gl_journal_hd_company_code,
+     gl_journal_hd.`journal_no` AS gl_journal_hd_journal_no,
+     gl_journal_hd.`doc_date` AS gl_journal_hd_doc_date,
+     gl_journal_hd.`doc_descs` AS gl_journal_hd_doc_descs,
+     gl_journal_hd.`doc_ref_no` AS gl_journal_hd_doc_ref_no,
+     gl_journal_hd.`doc_ref_date` AS gl_journal_hd_doc_ref_date,
+     gl_journal_hd.`trx_use` AS gl_journal_hd_trx_use,
+     gl_journal_hd.`status` AS gl_journal_hd_status
+FROM
+     `gl_journal_hd` gl_journal_hd WHERE 1]]>
+    </queryString>
+    <field name="gl_journal_hd_company_code" class="java.lang.String"/>
+    <field name="gl_journal_hd_journal_no" class="java.lang.String"/>
+    <field name="gl_journal_hd_doc_date" class="java.sql.Date"/>
+    <field name="gl_journal_hd_doc_descs" class="java.lang.String"/>
+    <field name="gl_journal_hd_doc_ref_no" class="java.lang.String"/>
+    <field name="gl_journal_hd_doc_ref_date" class="java.sql.Date"/>
+    <field name="gl_journal_hd_trx_use" class="java.lang.String"/>
+    <field name="gl_journal_hd_status" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="792" splitType="Stretch">
+            <textField>
+                <reportElement x="557" y="84" width="109" height="20"/>
+                <textElement>
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_journal_hd_journal_no}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="557" y="114" width="109" height="20"/>
+                <textElement>
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_journal_hd_doc_date}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="93" y="302" width="573" height="119"/>
+                <textElement>
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_journal_hd_doc_descs}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="93" y="455" width="189" height="20"/>
+                <textElement>
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_journal_hd_doc_ref_no}]]></textFieldExpression>
+            </textField>
+            <subreport>
+                <reportElement x="93" y="555" width="573" height="195"/>
+                <subreportParameter name="journal_no">
+                    <subreportParameterExpression><![CDATA[$F{gl_journal_hd_journal_no}]]></subreportParameterExpression>
+                </subreportParameter>
+                <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                <subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "gl_journal_dt.jasper"]]></subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+</jasperReport>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cb_pv_dt" language="groovy" pageWidth="684" pageHeight="200" columnWidth="684" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="journal_no" class="java.lang.String"/>
+    <queryString>
+		<![CDATA[SELECT
+
+     gl_chart2.`descs` AS gl_chart2_descs,
+     gl_journal_dt.`journal_no` AS gl_journal_dt_journal_no,
+     gl_journal_dt.`descs` AS gl_journal_dt_descs,
+     gl_journal_dt.`charge_type` AS gl_journal_dt_charge_type,
+     gl_journal_dt.`gl_account` AS gl_journal_dt_gl_account,
+     gl_journal_dt.`scheme_code` AS gl_journal_dt_scheme_code,
+     gl_journal_dt.`project_code` AS gl_journal_dt_project_code,
+     gl_journal_dt.`phase_code` AS gl_journal_dt_phase_code,
+     gl_journal_dt.`cost_code` AS gl_journal_dt_cost_code,
+     gl_journal_dt.`journal_amt` AS gl_journal_dt_journal_amt,
+     gl_journal_dt.`gl_date` AS gl_journal_dt_gl_date,
+     gl_journal_dt.`company_code` AS gl_journal_dt_company_code,
+     gl_chart2.`gl_account` AS gl_chart2_gl_account,
+     gl_chart2.`company_code` AS gl_chart2_company_code
+FROM
+     `gl_chart2` gl_chart2 INNER JOIN `gl_journal_dt` gl_journal_dt ON gl_chart2.`company_code` = gl_journal_dt.`company_code`
+     AND gl_chart2.`gl_account` = gl_journal_dt.`gl_account`
+WHERE
+     gl_journal_dt.journal_no = $P{journal_no}
+ORDER BY
+     gl_journal_dt.journal_amt DESC]]>
+    </queryString>
+    <field name="gl_chart2_descs" class="java.lang.String"/>
+    <field name="gl_journal_dt_journal_no" class="java.lang.String"/>
+    <field name="gl_journal_dt_descs" class="java.lang.String"/>
+    <field name="gl_journal_dt_charge_type" class="java.lang.String"/>
+    <field name="gl_journal_dt_gl_account" class="java.lang.String"/>
+    <field name="gl_journal_dt_scheme_code" class="java.lang.String"/>
+    <field name="gl_journal_dt_project_code" class="java.lang.String"/>
+    <field name="gl_journal_dt_phase_code" class="java.lang.String"/>
+    <field name="gl_journal_dt_cost_code" class="java.lang.String"/>
+    <field name="gl_journal_dt_journal_amt" class="java.math.BigDecimal"/>
+    <field name="gl_journal_dt_gl_date" class="java.sql.Date"/>
+    <field name="gl_journal_dt_company_code" class="java.lang.String"/>
+    <field name="gl_chart2_company_code" class="java.lang.String"/>
+    <field name="gl_chart2_gl_account" class="java.lang.String"/>
+    <detail>
+        <band height="15" splitType="Stretch">
+            <textField isStretchWithOverflow="true">
+                <reportElement x="0" y="0" width="269" height="15"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_chart2_descs}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="269" y="0" width="142" height="15"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_chart2_gl_account}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="#,##0.00;(-#,##0.00)">
+                <reportElement x="411" y="0" width="72" height="15"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[(($F{gl_journal_dt_journal_amt}> 0 )? $F{gl_journal_dt_journal_amt}.abs():"")]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="#,##0.00;(-#,##0.00)">
+                <reportElement x="483" y="0" width="72" height="15"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[(($F{gl_journal_dt_journal_amt} < 0 )? $F{gl_journal_dt_journal_amt}.abs():"")]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

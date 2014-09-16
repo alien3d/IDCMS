@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cb_pv_dt" language="groovy" pageWidth="684" pageHeight="200" columnWidth="684" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="pv_doc_no" class="java.lang.String"/>
+    <queryString>
+		<![CDATA[SELECT
+     gl_chart2.`company_code` AS gl_chart2_company_code,
+     gl_chart2.`gl_account` AS gl_chart2_gl_account,
+     gl_chart2.`descs` AS gl_chart2_descs,
+     gl_chart2.`account_class` AS gl_chart2_account_class,
+     gl_chart2.`cashflow` AS gl_chart2_cashflow,
+     gl_chart2.`in_and_out` AS gl_chart2_in_and_out,
+     gl_chart2.`match` AS gl_chart2_match,
+     gl_chart2.`control_account` AS gl_chart2_control_account,
+     gl_chart2.`active` AS gl_chart2_active,
+     gl_chart2.`create_user` AS gl_chart2_create_user,
+     gl_chart2.`create_date` AS gl_chart2_create_date,
+     gl_chart2.`create_group` AS gl_chart2_create_group,
+     gl_chart2.`modified_user` AS gl_chart2_modified_user,
+     gl_chart2.`modified_date` AS gl_chart2_modified_date,
+     gl_chart2.`display_seq` AS gl_chart2_display_seq,
+     gl_chart2.`unique_id` AS gl_chart2_unique_id,
+     cb_pv_dt.`company_code` AS cb_pv_dt_company_code,
+     cb_pv_dt.`pv_doc_no` AS cb_pv_dt_pv_doc_no,
+     cb_pv_dt.`trx_date` AS cb_pv_dt_trx_date,
+     cb_pv_dt.`journal_no` AS cb_pv_dt_journal_no,
+     cb_pv_dt.`line_no` AS cb_pv_dt_line_no,
+     cb_pv_dt.`descs` AS cb_pv_dt_descs,
+     cb_pv_dt.`gl_account` AS cb_pv_dt_gl_account,
+     cb_pv_dt.`charge_type` AS cb_pv_dt_charge_type,
+     cb_pv_dt.`project_code` AS cb_pv_dt_project_code,
+     cb_pv_dt.`phase_code` AS cb_pv_dt_phase_code,
+     cb_pv_dt.`cost_code` AS cb_pv_dt_cost_code,
+     (cb_pv_dt.`charge_amt`) AS cb_pv_dt_charge_amt,
+     cb_pv_dt.`bank_code` AS cb_pv_dt_bank_code,
+     cb_pv_dt.`create_user` AS cb_pv_dt_create_user,
+     cb_pv_dt.`create_date` AS cb_pv_dt_create_date,
+     cb_pv_dt.`modified_user` AS cb_pv_dt_modified_user,
+     cb_pv_dt.`modified_date` AS cb_pv_dt_modified_date,
+     cb_pv_dt.`unique_id` AS cb_pv_dt_unique_id
+FROM
+     `gl_chart2` gl_chart2
+JOIN
+     `cb_pv_dt` cb_pv_dt
+ON  gl_chart2.company_code =  cb_pv_dt.company_code
+AND   gl_chart2.gl_account =  cb_pv_dt.gl_account
+WHERE cb_pv_dt.pv_doc_no = $P{pv_doc_no}
+ORDER BY 	cb_pv_dt.charge_amt DESC]]>
+    </queryString>
+    <field name="gl_chart2_company_code" class="java.lang.String"/>
+    <field name="gl_chart2_gl_account" class="java.lang.String"/>
+    <field name="gl_chart2_descs" class="java.lang.String"/>
+    <field name="gl_chart2_account_class" class="java.lang.String"/>
+    <field name="gl_chart2_cashflow" class="java.lang.String"/>
+    <field name="gl_chart2_in_and_out" class="java.lang.Integer"/>
+    <field name="gl_chart2_match" class="java.lang.String"/>
+    <field name="gl_chart2_control_account" class="java.lang.String"/>
+    <field name="gl_chart2_active" class="java.lang.String"/>
+    <field name="gl_chart2_create_user" class="java.lang.String"/>
+    <field name="gl_chart2_create_date" class="java.sql.Timestamp"/>
+    <field name="gl_chart2_create_group" class="java.lang.String"/>
+    <field name="gl_chart2_modified_user" class="java.lang.String"/>
+    <field name="gl_chart2_modified_date" class="java.sql.Timestamp"/>
+    <field name="gl_chart2_display_seq" class="java.lang.Integer"/>
+    <field name="gl_chart2_unique_id" class="java.lang.Integer"/>
+    <field name="cb_pv_dt_company_code" class="java.lang.String"/>
+    <field name="cb_pv_dt_pv_doc_no" class="java.lang.String"/>
+    <field name="cb_pv_dt_trx_date" class="java.sql.Date"/>
+    <field name="cb_pv_dt_journal_no" class="java.lang.String"/>
+    <field name="cb_pv_dt_line_no" class="java.math.BigDecimal"/>
+    <field name="cb_pv_dt_descs" class="java.lang.String"/>
+    <field name="cb_pv_dt_gl_account" class="java.lang.String"/>
+    <field name="cb_pv_dt_charge_type" class="java.lang.String"/>
+    <field name="cb_pv_dt_project_code" class="java.lang.String"/>
+    <field name="cb_pv_dt_phase_code" class="java.lang.String"/>
+    <field name="cb_pv_dt_cost_code" class="java.lang.String"/>
+    <field name="cb_pv_dt_charge_amt" class="java.math.BigDecimal"/>
+    <field name="cb_pv_dt_bank_code" class="java.lang.String"/>
+    <field name="cb_pv_dt_create_user" class="java.lang.String"/>
+    <field name="cb_pv_dt_create_date" class="java.sql.Timestamp"/>
+    <field name="cb_pv_dt_modified_user" class="java.lang.String"/>
+    <field name="cb_pv_dt_modified_date" class="java.sql.Timestamp"/>
+    <field name="cb_pv_dt_unique_id" class="java.lang.Integer"/>
+    <detail>
+        <band height="15" splitType="Stretch">
+            <textField isStretchWithOverflow="true">
+                <reportElement x="47" y="0" width="269" height="15"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_chart2_descs}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="317" y="0" width="142" height="15"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{gl_chart2_gl_account}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="#,##0.00;(-#,##0.00)">
+                <reportElement x="459" y="0" width="72" height="15"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[(($F{cb_pv_dt_charge_amt}> 0 )? $F{cb_pv_dt_charge_amt}.abs():"")]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" pattern="#,##0.00;(-#,##0.00)">
+                <reportElement x="561" y="0" width="72" height="15"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[(($F{cb_pv_dt_charge_amt} < 0 )? $F{cb_pv_dt_charge_amt}.abs():"")]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

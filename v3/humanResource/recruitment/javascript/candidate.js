@@ -1,0 +1,2679 @@
+function getCity(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'city'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#cityId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function getState(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'state'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#stateId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function getCountry(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'country'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#countryId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function getGender(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'gender'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#genderId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function getMarriage(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'marriage'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#marriageId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function getRace(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'race'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#raceId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function getReligion(leafId, url, securityToken) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'filter',
+            securityToken: securityToken,
+            leafId: leafId,
+            filter: 'religion'
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</spam>");
+            } else {
+                $("#religionId").html('').empty().html(data.data).trigger("chosen:updated");
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'>  " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(5000).fadeOut();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function checkDuplicate(leafId, page, securityToken) {
+    var $candidateCode = $("#candidateCode");
+    if ($candidateCode.val().length === 0) {
+        alert(t['oddTextLabel']);
+        return false;
+    }
+    $.ajax({
+        type: 'GET',
+        url: page,
+        data: {
+            candidateCode: $candidateCode.val(),
+            method: 'duplicate',
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'>&nbsp;" + decodeURIComponent(t['loadingTextLabel']) + "....</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            var total = data.total;
+            if (success === true) {
+                if (total !== 0) {
+                    $("#candidateCode").val('').focus();
+                    $("#candidateCodeForm").removeClass().addClass("form-group has-error");
+                    $infoPanel.html('').empty().html("<img src='" + smileyRoll + "'> " + t['codeDuplicateTextLabel']).delay(5000).fadeOut();
+                } else {
+                    $infoPanel.html('').empty().html("<img src='" + smileyLol + "'> " + t['codeAvailableTextLabel']).delay(5000).fadeOut();
+                }
+            } else {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                $("#candidateForm").removeClass().addClass("form-group has-error");
+            }
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function showGrid(leafId, page, securityToken, offset, limit, type) {
+    $.ajax({
+        type: 'POST',
+        url: page,
+        data: {
+            offset: offset,
+            limit: limit,
+            method: 'read',
+            type: 'list',
+            detail: 'body',
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'>&nbsp;" + decodeURIComponent(t['loadingTextLabel']) + "....</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $centerViewPort = $('#centerViewport');
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $centerViewPort.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'> " + message + "</span>");
+            } else {
+                $centerViewPort.html('').empty().append(data);
+            }
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty();
+            if (type === 1) {
+                $infoPanel.html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(1000).fadeOut();
+            } else if (type === 2) {
+                $infoPanel.html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['deleteRecordTextLabel']) + "</span>").delay(1000).fadeOut();
+            }
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+            $(document).scrollTop();
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function ajaxQuerySearchAll(leafId, url, securityToken) {
+    $('#clearSearch').removeClass().addClass('btn');
+    var queryGrid = $('#query').val();
+    var queryWidget = $('#queryWidget').val();
+    var queryText;
+    if (queryGrid !== undefined) {
+        if (queryGrid.length > 0) {
+            queryText = queryGrid;
+        } else {
+            queryText = queryWidget;
+        }
+    } else {
+        queryText = queryWidget;
+    }
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'list',
+            detail: 'body',
+            query: queryText,
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $centerViewPort = $('#centerViewport');
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $centerViewPort.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'> " + message + "</span>");
+            } else {
+                $centerViewPort.html('').empty().append(data);
+            }
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("&nbsp;<img src='" + zoomIcon + "'> <b>" + decodeURIComponent(t['filterTextLabel']) + '</b>: ' + queryText + "");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+            $(document).scrollTop();
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-md-12 col-sm-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function ajaxQuerySearchAllCharacter(leafId, url, securityToken, character) {
+    $('#clearSearch').removeClass().addClass('btn btn-primary');
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'list',
+            detail: 'body',
+            securityToken: securityToken,
+            leafId: leafId,
+            character: character
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $centerViewPort = $('#centerViewport');
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var zoomIcon = './images/icons/magnifier-zoom-actual-equal.png';
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $centerViewPort.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'> " + message + "</span>");
+            } else {
+                $centerViewPort.html('').empty().append(data);
+            }
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("&nbsp;<img src='" + zoomIcon + "'> <b>" + decodeURIComponent(t['filterTextLabel']) + "</b>: " + character + " ");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+            $(document).scrollTop();
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html('').html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function ajaxQuerySearchAllDate(leafId, url, securityToken, dateRangeStart, dateRangeEnd, dateRangeType) {
+    Date.prototype.getMonthName = function() {
+        var m = [t['januaryTextLabel'], t['februaryTextLabel'], t['marchTextLabel'], t['aprilTextLabel'], t['mayTextLabel'], t['juneTextLabel'], t['julyTextLabel'], t['augustTextLabel'], t['septemberTextLabel'], t['octoberTextLabel'], t['novemberTextLabel'], t['decemberTextLabel']];
+        return m[this.getMonth()];
+    };
+    Date.prototype.getDayName = function() {
+        var d = [t['sundayTextLabel'], t['mondayTextLabel'], t['tuesdayTextLabel'], t['wednesdayTextLabel'], t['thursdayTextLabel'], t['fridayTextLabel'], t['saturdayTextLabel']];
+        return d[this.getDay()];
+    };
+    var calendarPng;
+    var strDate;
+    var dateStart = new Date();
+    var partsStart = String(dateRangeStart).split('-');
+    dateStart.setFullYear(partsStart[2]);
+    dateStart.setMonth(partsStart[1] - 1);
+    dateStart.setDate(partsStart[0]);
+    var dateEnd = new Date();
+    if (dateRangeEnd.length > 0) {
+        var partsEnd = String(dateRangeEnd).split('-');
+        dateEnd.setFullYear(partsEnd[2]);
+        dateEnd.setMonth(partsEnd[1] - 1);
+        dateEnd.setDate(partsEnd[0]);
+    }
+    if (dateRangeStart.length === 0) {
+        dateRangeStart = $('#dateRangeStart').val();
+    }
+    if (dateRangeEnd.length === 0) {
+        dateRangeEnd = $('#dateRangeEnd').val();
+    }
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            offset: 0,
+            limit: 99999,
+            method: 'read',
+            type: 'list',
+            detail: 'body',
+            query: $('#query').val(),
+            securityToken: securityToken,
+            leafId: leafId,
+            dateRangeStart: dateRangeStart,
+            dateRangeEnd: dateRangeEnd,
+            dateRangeType: dateRangeType
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $centerViewPort = $('#centerViewport');
+            var betweenIcon = './images/icons/arrow-curve-000-left.png';
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $centerViewPort.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'>" + message + "</span>");
+            } else {
+                $centerViewPort.html('').empty().append(data);
+            }
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty();
+            if (dateRangeType === 'day') {
+                calendarPng = 'calendar-select-days.png';
+            } else if (dateRangeType === 'week' || dateRangeType === 'between') {
+                calendarPng = 'calendar-select-week.png';
+            } else if (dateRangeType === 'month') {
+                calendarPng = 'calendar-select-month.png';
+            } else if (dateRangeType === 'year') {
+                calendarPng = 'calendar-select.png';
+            } else {
+                calendarPng = 'calendar-select.png';
+            }
+            switch (dateRangeType) {
+                case 'day':
+                    strDate = "<b>" + t['dayTextLabel'] + "</b> : " + dateStart.getDayName() + ", " + dateStart.getMonthName() + ", " + dateStart.getDate() + ", " + dateStart.getFullYear();
+                    break;
+                case 'month':
+                    strDate = "<b>" + t['monthTextLabel'] + "</b> : " + dateStart.getMonthName() + ", " + dateStart.getFullYear();
+                    break;
+                case 'year':
+                    strDate = "<b>" + t['yearTextLabel'] + "</b> : " + dateStart.getFullYear();
+                    break;
+                case 'week':
+                    if (dateRangeEnd.length === 0) {
+                        strDate = "<b>" + t['dayTextLabel'] + "</b> : " + dateStart.getDayName() + ", " + dateStart.getMonthName() + ", " + dateStart.getDate() + ", " + dateStart.getFullYear();
+                    } else {
+                        strDate = "<b>" + t['betweenTextLabel'] + "</b> : " + dateStart.getDayName() + ", " + dateStart.getMonthName() + ", " + dateStart.getDate() + ", " + dateStart.getFullYear() + "&nbsp;<img src='" + betweenIcon + "'>&nbsp;" + dateEnd.getDayName() + ", " + dateEnd.getMonthName() + ", " + dateEnd.getDate() + ", " + dateEnd.getFullYear();
+                    }
+                    break;
+                case 'between':
+                    if (dateRangeEnd.length === 0) {
+                        strDate = "<b>" + t['dayTextLabel'] + "</b> : " + dateStart.getDayName() + ", " + dateStart.getMonthName() + ", " + dateStart.getDate() + ', ' + dateStart.getFullYear();
+                    } else {
+                        strDate = "<b>" + t['betweenTextLabel'] + "</b> : " + dateStart.getDayName() + ", " + dateStart.getMonthName() + ", " + dateStart.getDate() + ", " + dateStart.getFullYear() + "&nbsp;<img src='" + betweenIcon + "'>&nbsp;" + dateEnd.getDayName() + ", " + dateEnd.getMonthName() + ", " + dateEnd.getDate() + ", " + dateEnd.getFullYear();
+                    }
+                    break;
+            }
+            var imageCalendarPath = "./images/icons/" + calendarPng;
+            $infoPanel.html('').empty().html("<img src='" + imageCalendarPath + "'> " + strDate + " ");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+            $(document).scrollTop();
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function ajaxQuerySearchAllDateRange(leafId, url, securityToken) {
+    ajaxQuerySearchAllDate(leafId, url, securityToken, $('#dateRangeStart').val(), $('#dateRangeEnd').val(), 'between');
+}
+function showForm(leafId, url, securityToken) {
+    sleep(500);
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            method: 'new',
+            type: 'form',
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $centerViewPort = $('#centerViewport');
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $centerViewPort.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'> " + message + "</span>");
+            } else {
+                $centerViewPort.html('').empty().append(data);
+                var $infoPanel = $('#infoPanel');
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(1000).fadeOut();
+                if ($infoPanel.is(':hidden')) {
+                    $infoPanel.show();
+                }
+                $(document).scrollTop();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function showFormUpdate(leafId, url, urlList, securityToken, candidateId, updateAccess, deleteAccess) {
+    sleep(500);
+    $('a[rel=tooltip]').tooltip('hide');
+    $.ajax({
+        type: 'POST',
+        url: urlList,
+        data: {
+            method: 'read',
+            type: 'form',
+            candidateId: candidateId,
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $infoPanel = $('#infoPanel');
+            var $centerViewPort = $('#centerViewport');
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var smileyLol = './images/icons/smiley-lol.png';
+            var success = data.success;
+            var message = data.message;
+            if (success === false) {
+                $centerViewPort.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRoll + "'> " + message + "</span>");
+            } else {
+                $centerViewPort.html('').empty().append(data);
+                $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(1000).fadeOut();
+                if ($infoPanel.is(':hidden')) {
+                    $infoPanel.show();
+                }
+                $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+                $('#newRecordButton2').removeClass().addClass('btn  dropdown-toggle btn-success disabled');
+                $('#newRecordButton3').attr('onClick', '');
+                $('#newRecordButton4').attr('onClick', '');
+                $('#newRecordButton5').attr('onClick', '');
+                $('#newRecordButton6').attr('onClick', '');
+                $('#newRecordButton7').attr('onClick', '');
+                if (updateAccess === 1) {
+                    $('#updateRecordButton1').removeClass().addClass('btn btn-info');
+                    $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info');
+                    $('#updateRecordButton3').attr('onClick', "updateRecord(" + leafId + ",\"" + url + "\",\"" + urlList + "\",\"" + securityToken + "\",1," + deleteAccess + ")");
+                    $('#updateRecordButton4').attr('onClick', "updateRecord(" + leafId + ",\"" + url + "\",\"" + urlList + "\",\"" + securityToken + "\",2," + deleteAccess + ")");
+                    $('#updateRecordButton5').attr('onClick', "updateRecord(" + leafId + ",\"" + url + "\",\"" + urlList + "\",\"" + securityToken + "\",3," + deleteAccess + ")");
+                } else {
+                    $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '');
+                    $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled');
+                    $('#updateRecordButton3').attr('onClick', '');
+                    $('#updateRecordButton4').attr('onClick', '');
+                    $('#updateRecordButton5').attr('onClick', '');
+                }
+                if (deleteAccess === 1) {
+                    $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', "deleteRecord(" + leafId + ",\"" + url + "\",\"" + urlList + "\",\"" + securityToken + "\"," + deleteAccess + ")");
+                } else {
+                    $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                }
+                $(document).scrollTop();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-md-12 col-sm-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function showModalDelete(candidateId, cityId, stateId, countryId, genderId, marriageId, raceId, religionId, documentNumber, candidateFirstName, candidateLastName, candidateEmail, candidateBusinessPhone, candidateHomePhone, candidateMobilePhone, candidateFaxNumber, candidateAddress, candidatePostCode, candidateWebPage, candidateFacebook, candidateTwitter, candidateLinkedIn, candidateNotes, candidatePicture) {
+    $('#candidateIdPreview').val('').val(decodeURIComponent(candidateId));
+    $('#cityIdPreview').val('').val(decodeURIComponent(cityId));
+    $('#stateIdPreview').val('').val(decodeURIComponent(stateId));
+    $('#countryIdPreview').val('').val(decodeURIComponent(countryId));
+    $('#genderIdPreview').val('').val(decodeURIComponent(genderId));
+    $('#marriageIdPreview').val('').val(decodeURIComponent(marriageId));
+    $('#raceIdPreview').val('').val(decodeURIComponent(raceId));
+    $('#religionIdPreview').val('').val(decodeURIComponent(religionId));
+    $('#documentNumberPreview').val('').val(decodeURIComponent(documentNumber));
+    $('#candidateFirstNamePreview').val('').val(decodeURIComponent(candidateFirstName));
+    $('#candidateLastNamePreview').val('').val(decodeURIComponent(candidateLastName));
+    $('#candidateEmailPreview').val('').val(decodeURIComponent(candidateEmail));
+    $('#candidateBusinessPhonePreview').val('').val(decodeURIComponent(candidateBusinessPhone));
+    $('#candidateHomePhonePreview').val('').val(decodeURIComponent(candidateHomePhone));
+    $('#candidateMobilePhonePreview').val('').val(decodeURIComponent(candidateMobilePhone));
+    $('#candidateFaxNumberPreview').val('').val(decodeURIComponent(candidateFaxNumber));
+    $('#candidateAddressPreview').val('').val(decodeURIComponent(candidateAddress));
+    $('#candidatePostCodePreview').val('').val(decodeURIComponent(candidatePostCode));
+    $('#candidateWebPagePreview').val('').val(decodeURIComponent(candidateWebPage));
+    $('#candidateFacebookPreview').val('').val(decodeURIComponent(candidateFacebook));
+    $('#candidateTwitterPreview').val('').val(decodeURIComponent(candidateTwitter));
+    $('#candidateLinkedInPreview').val('').val(decodeURIComponent(candidateLinkedIn));
+    $('#candidateNotesPreview').val('').val(decodeURIComponent(candidateNotes));
+    $('#candidatePicturePreview').val('').val(decodeURIComponent(candidatePicture));
+    showMeModal('deletePreview', 1);
+}
+function deleteGridRecord(leafId, url, urlList, securityToken) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            method: 'delete',
+            output: 'json',
+            candidateId: $('#candidateIdPreview').val(),
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'><img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === true) {
+                showMeModal('deletePreview', 0);
+                showGrid(leafId, urlList, securityToken, 0, 10, 2);
+            } else if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                if ($infoPanel.is(':hidden')) {
+                    $infoPanel.show();
+                }
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function deleteGridRecordCheckbox(leafId, url, urlList, securityToken) {
+    var stringText = '';
+    var counter = 0;
+    $('input:checkbox[name="candidateId[]"]').each(function() {
+        stringText = stringText + "&candidateId[]=" + $(this).val();
+    });
+    $('input:checkbox[name="isDelete[]"]').each(function() {
+        if ($(this).is(':checked')) {
+            stringText = stringText + "&isDelete[]=true";
+        } else {
+            stringText = stringText + "&isDelete[]=false";
+        }
+        if ($(this).is(':checked')) {
+            counter++;
+        }
+    });
+    if (counter === 0) {
+        alert(decodeURIComponent(t['deleteCheckboxTextLabel']));
+        return false;
+    } else {
+        url = url + "?" + stringText;
+    }
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            method: 'updateStatus',
+            output: 'json',
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $infoPanel = $('#infoPanel');
+            var success = data.success;
+            var message = data.message;
+            if (success === true) {
+                showGrid(leafId, urlList, securityToken, 0, 10, 2);
+            } else if (success === false) {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+            } else {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+            }
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function reportRequest(leafId, url, securityToken, mode) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+            method: 'report',
+            mode: mode,
+            securityToken: securityToken,
+            leafId: leafId
+        },
+        beforeSend: function() {
+            var smileyRoll = './images/icons/smiley-roll.png';
+            var $infoPanel = $('#infoPanel');
+            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        },
+        success: function(data) {
+            var $infoPanel = $('#infoPanel');
+            var folder = data.folder;
+            var filename = data.filename;
+            var success = data.success;
+            var message = data.message;
+            if (success === true) {
+                var path="./v3/humanResource/training/document/" + folder + "/" + filename;
+                $infoPanel.html('').empty().html("<span class='label label-success'>" + decodeURIComponent(t['requestFileTextLabel']) + "</span>");
+                window.open(path);
+            } else {
+                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                if ($infoPanel.is(':hidden')) {
+                    $infoPanel.show();
+                }
+            }
+        },
+        error: function(xhr) {
+            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+        }
+    });
+}
+function auditRecord() {
+    var css = $('#auditRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        return false;
+    }
+}
+function newRecord(leafId, url, urlList, securityToken, type, createAccess, updateAccess, deleteAccess) {
+    var css = $('#newRecordButton2').attr('class');
+    var $cityId = $('#cityId');
+    var $stateId = $('#stateId');
+    var $countryId = $('#countryId');
+    var $genderId = $('#genderId');
+    var $marriageId = $('#marriageId');
+    var $raceId = $('#raceId');
+    var $religionId = $('#religionId');
+    var $candidateFirstName = $('#candidateFirstName');
+    var $candidateLastName = $('#candidateLastName');
+    var $candidateEmail = $('#candidateEmail');
+    var $candidateBusinessPhone = $('#candidateBusinessPhone');
+    var $candidateHomePhone = $('#candidateHomePhone');
+    var $candidateMobilePhone = $('#candidateMobilePhone');
+    var $candidateFaxNumber = $('#candidateFaxNumber');
+    var $candidateAddress = $('#candidateAddress');
+    var $candidatePostCode = $('#candidatePostCode');
+    var $candidateWebPage = $('#candidateWebPage');
+    var $candidateFacebook = $('#candidateFacebook');
+    var $candidateTwitter = $('#candidateTwitter');
+    var $candidateLinkedIn = $('#candidateLinkedIn');
+    var $candidateNotes = $('#candidateNotes');
+    var $candidatePicture = $('#candidatePicture');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        if (type === 1) {
+            if ($cityId.val().length === 0) {
+                $('#cityIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['cityIdLabel'] + " </span>");
+                $cityId.data('chosen').activate_action();
+                return false;
+            }
+            if ($stateId.val().length === 0) {
+                $('#stateIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['stateIdLabel'] + " </span>");
+                $stateId.data('chosen').activate_action();
+                return false;
+            }
+            if ($countryId.val().length === 0) {
+                $('#countryIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['countryIdLabel'] + " </span>");
+                $countryId.data('chosen').activate_action();
+                return false;
+            }
+            if ($genderId.val().length === 0) {
+                $('#genderIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['genderIdLabel'] + " </span>");
+                $genderId.data('chosen').activate_action();
+                return false;
+            }
+            if ($marriageId.val().length === 0) {
+                $('#marriageIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['marriageIdLabel'] + " </span>");
+                $marriageId.data('chosen').activate_action();
+                return false;
+            }
+            if ($raceId.val().length === 0) {
+                $('#raceIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['raceIdLabel'] + " </span>");
+                $raceId.data('chosen').activate_action();
+                return false;
+            }
+            if ($religionId.val().length === 0) {
+                $('#religionIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['religionIdLabel'] + " </span>");
+                $religionId.data('chosen').activate_action();
+                return false;
+            }
+            if ($candidateFirstName.val().length === 0) {
+                $('#candidateFirstNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFirstNameLabel'] + " </span>");
+                $('#candidateFirstNameForm').removeClass().addClass('form-group has-error');
+                $candidateFirstName.focus();
+                return false;
+            }
+            if ($candidateLastName.val().length === 0) {
+                $('#candidateLastNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLastNameLabel'] + " </span>");
+                $('#candidateLastNameForm').removeClass().addClass('form-group has-error');
+                $candidateLastName.focus();
+                return false;
+            }
+            if ($candidateEmail.val().length === 0) {
+                $('#candidateEmailHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateEmailLabel'] + " </span>");
+                $('#candidateEmailForm').removeClass().addClass('form-group has-error');
+                $candidateEmail.focus();
+                return false;
+            }
+            if ($candidateBusinessPhone.val().length === 0) {
+                $('#candidateBusinessPhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateBusinessPhoneLabel'] + " </span>");
+                $('#candidateBusinessPhoneForm').removeClass().addClass('form-group has-error');
+                $candidateBusinessPhone.focus();
+                return false;
+            }
+            if ($candidateHomePhone.val().length === 0) {
+                $('#candidateHomePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateHomePhoneLabel'] + " </span>");
+                $('#candidateHomePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateHomePhone.focus();
+                return false;
+            }
+            if ($candidateMobilePhone.val().length === 0) {
+                $('#candidateMobilePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateMobilePhoneLabel'] + " </span>");
+                $('#candidateMobilePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateMobilePhone.focus();
+                return false;
+            }
+            if ($candidateFaxNumber.val().length === 0) {
+                $('#candidateFaxNumberHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFaxNumberLabel'] + " </span>");
+                $('#candidateFaxNumberForm').removeClass().addClass('form-group has-error');
+                $candidateFaxNumber.focus();
+                return false;
+            }
+            if ($candidateAddress.val().length === 0) {
+                $('#candidateAddressHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateAddressLabel'] + " </span>");
+                $('#candidateAddressForm').removeClass().addClass('form-group has-error');
+                $candidateAddress.focus();
+                return false;
+            }
+            if ($candidatePostCode.val().length === 0) {
+                $('#candidatePostCodeHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePostCodeLabel'] + " </span>");
+                $('#candidatePostCodeForm').removeClass().addClass('form-group has-error');
+                $candidatePostCode.focus();
+                return false;
+            }
+            if ($candidateWebPage.val().length === 0) {
+                $('#candidateWebPageHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateWebPageLabel'] + " </span>");
+                $('#candidateWebPageForm').removeClass().addClass('form-group has-error');
+                $candidateWebPage.focus();
+                return false;
+            }
+            if ($candidateFacebook.val().length === 0) {
+                $('#candidateFacebookHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFacebookLabel'] + " </span>");
+                $('#candidateFacebookForm').removeClass().addClass('form-group has-error');
+                $candidateFacebook.focus();
+                return false;
+            }
+            if ($candidateTwitter.val().length === 0) {
+                $('#candidateTwitterHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateTwitterLabel'] + " </span>");
+                $('#candidateTwitterForm').removeClass().addClass('form-group has-error');
+                $candidateTwitter.focus();
+                return false;
+            }
+            if ($candidateLinkedIn.val().length === 0) {
+                $('#candidateLinkedInHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLinkedInLabel'] + " </span>");
+                $('#candidateLinkedInForm').removeClass().addClass('form-group has-error');
+                $candidateLinkedIn.focus();
+                return false;
+            }
+            if ($candidateNotes.val().length === 0) {
+                $('#candidateNotesHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateNotesLabel'] + " </span>");
+                $('#candidateNotesForm').removeClass().addClass('form-group has-error');
+                $candidateNotes.focus();
+                return false;
+            }
+            if ($candidatePicture.val().length === 0) {
+                $('#candidatePictureHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePictureLabel'] + " </span>");
+                $('#candidatePictureForm').removeClass().addClass('form-group has-error');
+                $candidatePicture.focus();
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'create',
+                    output: 'json',
+                    cityId: $cityId.val(),
+                    stateId: $stateId.val(),
+                    countryId: $countryId.val(),
+                    genderId: $genderId.val(),
+                    marriageId: $marriageId.val(),
+                    raceId: $raceId.val(),
+                    religionId: $religionId.val(),
+                    
+                    candidateFirstName: $candidateFirstName.val(),
+                    candidateLastName: $candidateLastName.val(),
+                    candidateEmail: $candidateEmail.val(),
+                    candidateBusinessPhone: $candidateBusinessPhone.val(),
+                    candidateHomePhone: $candidateHomePhone.val(),
+                    candidateMobilePhone: $candidateMobilePhone.val(),
+                    candidateFaxNumber: $candidateFaxNumber.val(),
+                    candidateAddress: $candidateAddress.val(),
+                    candidatePostCode: $candidatePostCode.val(),
+                    candidateWebPage: $candidateWebPage.val(),
+                    candidateFacebook: $candidateFacebook.val(),
+                    candidateTwitter: $candidateTwitter.val(),
+                    candidateLinkedIn: $candidateLinkedIn.val(),
+                    candidateNotes: $candidateNotes.val(),
+                    candidatePicture: $candidatePicture.val(),
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var $infoPanel = $('#infoPanel');
+                    var success = data.success;
+                    var message = data.message;
+                    var smileyLol = './images/icons/smiley-lol.png';
+                    if (success === true) {
+                        $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['newRecordTextLabel']) + "</span>").delay(1000).fadeOut();
+                        if ($infoPanel.is(':hidden')) {
+                            $infoPanel.show();
+                        }
+                        $cityId.val('');
+                        $cityId.trigger("chosen:updated");
+                        $('#cityIdHelpMe').html('').empty();
+                        $stateId.val('');
+                        $stateId.trigger("chosen:updated");
+                        $('#stateIdHelpMe').html('').empty();
+                        $countryId.val('');
+                        $countryId.trigger("chosen:updated");
+                        $('#countryIdHelpMe').html('').empty();
+                        $genderId.val('');
+                        $genderId.trigger("chosen:updated");
+                        $('#genderIdHelpMe').html('').empty();
+                        $marriageId.val('');
+                        $marriageId.trigger("chosen:updated");
+                        $('#marriageIdHelpMe').html('').empty();
+                        $raceId.val('');
+                        $raceId.trigger("chosen:updated");
+                        $('#raceIdHelpMe').html('').empty();
+                        $religionId.val('');
+                        $religionId.trigger("chosen:updated");
+                        $('#religionIdHelpMe').html('').empty();
+                        $("documentNumber").val('');
+                        $('#documentNumberHelpMe').html('').empty();
+                        $candidateFirstName.val('');
+                        $('#candidateFirstNameHelpMe').html('').empty();
+                        $candidateLastName.val('');
+                        $('#candidateLastNameHelpMe').html('').empty();
+                        $candidateEmail.val('');
+                        $('#candidateEmailHelpMe').html('').empty();
+                        $candidateBusinessPhone.val('');
+                        $('#candidateBusinessPhoneHelpMe').html('').empty();
+                        $candidateHomePhone.val('');
+                        $('#candidateHomePhoneHelpMe').html('').empty();
+                        $candidateMobilePhone.val('');
+                        $('#candidateMobilePhoneHelpMe').html('').empty();
+                        $candidateFaxNumber.val('');
+                        $('#candidateFaxNumberHelpMe').html('').empty();
+                        $candidateAddress.val('');
+                        $('#candidateAddressForm').removeClass().addClass('form-group');
+                        $('#candidateAddressHelpMe').html('').empty();
+                        $candidatePostCode.val('');
+                        $('#candidatePostCodeHelpMe').html('').empty();
+                        $candidateWebPage.val('');
+                        $('#candidateWebPageHelpMe').html('').empty();
+                        $candidateFacebook.val('');
+                        $('#candidateFacebookHelpMe').html('').empty();
+                        $candidateTwitter.val('');
+                        $('#candidateTwitterHelpMe').html('').empty();
+                        $candidateLinkedIn.val('');
+                        $('#candidateLinkedInHelpMe').html('').empty();
+                        $candidateNotes.val('');
+                        $('#candidateNotesHelpMe').html('').empty();
+                        $candidatePicture.val('');
+                        $('#candidatePictureHelpMe').html('').empty();
+                    } else if (success === false) {
+                        $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                        if ($infoPanel.is(':hidden')) {
+                            $infoPanel.show();
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        } else if (type === 2) {
+            if ($cityId.val().length === 0) {
+                $('#cityIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['cityIdLabel'] + " </span>");
+                $cityId.data('chosen').activate_action();
+                return false;
+            }
+            if ($stateId.val().length === 0) {
+                $('#stateIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['stateIdLabel'] + " </span>");
+                $stateId.data('chosen').activate_action();
+                return false;
+            }
+            if ($countryId.val().length === 0) {
+                $('#countryIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['countryIdLabel'] + " </span>");
+                $countryId.data('chosen').activate_action();
+                return false;
+            }
+            if ($genderId.val().length === 0) {
+                $('#genderIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['genderIdLabel'] + " </span>");
+                $genderId.data('chosen').activate_action();
+                return false;
+            }
+            if ($marriageId.val().length === 0) {
+                $('#marriageIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['marriageIdLabel'] + " </span>");
+                $marriageId.data('chosen').activate_action();
+                return false;
+            }
+            if ($raceId.val().length === 0) {
+                $('#raceIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['raceIdLabel'] + " </span>");
+                $raceId.data('chosen').activate_action();
+                return false;
+            }
+            if ($religionId.val().length === 0) {
+                $('#religionIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['religionIdLabel'] + " </span>");
+                $religionId.data('chosen').activate_action();
+                return false;
+            }
+            if ($candidateFirstName.val().length === 0) {
+                $('#candidateFirstNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFirstNameLabel'] + " </span>");
+                $('#candidateFirstNameForm').removeClass().addClass('form-group has-error');
+                $candidateFirstName.focus();
+                return false;
+            }
+            if ($candidateLastName.val().length === 0) {
+                $('#candidateLastNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLastNameLabel'] + " </span>");
+                $('#candidateLastNameForm').removeClass().addClass('form-group has-error');
+                $candidateLastName.focus();
+                return false;
+            }
+            if ($candidateEmail.val().length === 0) {
+                $('#candidateEmailHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateEmailLabel'] + " </span>");
+                $('#candidateEmailForm').removeClass().addClass('form-group has-error');
+                $candidateEmail.focus();
+                return false;
+            }
+            if ($candidateBusinessPhone.val().length === 0) {
+                $('#candidateBusinessPhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateBusinessPhoneLabel'] + " </span>");
+                $('#candidateBusinessPhoneForm').removeClass().addClass('form-group has-error');
+                $candidateBusinessPhone.focus();
+                return false;
+            }
+            if ($candidateHomePhone.val().length === 0) {
+                $('#candidateHomePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateHomePhoneLabel'] + " </span>");
+                $('#candidateHomePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateHomePhone.focus();
+                return false;
+            }
+            if ($candidateMobilePhone.val().length === 0) {
+                $('#candidateMobilePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateMobilePhoneLabel'] + " </span>");
+                $('#candidateMobilePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateMobilePhone.focus();
+                return false;
+            }
+            if ($candidateFaxNumber.val().length === 0) {
+                $('#candidateFaxNumberHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFaxNumberLabel'] + " </span>");
+                $('#candidateFaxNumberForm').removeClass().addClass('form-group has-error');
+                $candidateFaxNumber.focus();
+                return false;
+            }
+            if ($candidateAddress.val().length === 0) {
+                $('#candidateAddressHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateAddressLabel'] + " </span>");
+                $('#candidateAddressForm').removeClass().addClass('form-group has-error');
+                $candidateAddress.focus();
+                return false;
+            }
+            if ($candidatePostCode.val().length === 0) {
+                $('#candidatePostCodeHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePostCodeLabel'] + " </span>");
+                $('#candidatePostCodeForm').removeClass().addClass('form-group has-error');
+                $candidatePostCode.focus();
+                return false;
+            }
+            if ($candidateWebPage.val().length === 0) {
+                $('#candidateWebPageHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateWebPageLabel'] + " </span>");
+                $('#candidateWebPageForm').removeClass().addClass('form-group has-error');
+                $candidateWebPage.focus();
+                return false;
+            }
+            if ($candidateFacebook.val().length === 0) {
+                $('#candidateFacebookHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFacebookLabel'] + " </span>");
+                $('#candidateFacebookForm').removeClass().addClass('form-group has-error');
+                $candidateFacebook.focus();
+                return false;
+            }
+            if ($candidateTwitter.val().length === 0) {
+                $('#candidateTwitterHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateTwitterLabel'] + " </span>");
+                $('#candidateTwitterForm').removeClass().addClass('form-group has-error');
+                $candidateTwitter.focus();
+                return false;
+            }
+            if ($candidateLinkedIn.val().length === 0) {
+                $('#candidateLinkedInHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLinkedInLabel'] + " </span>");
+                $('#candidateLinkedInForm').removeClass().addClass('form-group has-error');
+                $candidateLinkedIn.focus();
+                return false;
+            }
+            if ($candidateNotes.val().length === 0) {
+                $('#candidateNotesHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateNotesLabel'] + " </span>");
+                $('#candidateNotesForm').removeClass().addClass('form-group has-error');
+                $candidateNotes.focus();
+                return false;
+            }
+            if ($candidatePicture.val().length === 0) {
+                $('#candidatePictureHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePictureLabel'] + " </span>");
+                $('#candidatePictureForm').removeClass().addClass('form-group has-error');
+                $candidatePicture.focus();
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'create',
+                    output: 'json',
+                    cityId: $cityId.val(),
+                    stateId: $stateId.val(),
+                    countryId: $countryId.val(),
+                    genderId: $genderId.val(),
+                    marriageId: $marriageId.val(),
+                    raceId: $raceId.val(),
+                    religionId: $religionId.val(),
+                    
+                    candidateFirstName: $candidateFirstName.val(),
+                    candidateLastName: $candidateLastName.val(),
+                    candidateEmail: $candidateEmail.val(),
+                    candidateBusinessPhone: $candidateBusinessPhone.val(),
+                    candidateHomePhone: $candidateHomePhone.val(),
+                    candidateMobilePhone: $candidateMobilePhone.val(),
+                    candidateFaxNumber: $candidateFaxNumber.val(),
+                    candidateAddress: $candidateAddress.val(),
+                    candidatePostCode: $candidatePostCode.val(),
+                    candidateWebPage: $candidateWebPage.val(),
+                    candidateFacebook: $candidateFacebook.val(),
+                    candidateTwitter: $candidateTwitter.val(),
+                    candidateLinkedIn: $candidateLinkedIn.val(),
+                    candidateNotes: $candidateNotes.val(),
+                    candidatePicture: $candidatePicture.val(),
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var $infoPanel = $('#infoPanel');
+                    var success = data.success;
+                    var smileyLol = './images/icons/smiley-lol.png';
+                    if (success === true) {
+                        $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['newRecordTextLabel']) + "</span>");
+                        $('#candidateId').val(data.candidateId);
+                        $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+                        $('#newRecordButton2').removeClass().addClass('btn dropdown-toggle btn-success disabled');
+                        $('#newRecordButton3').attr('onClick', '');
+                        $('#newRecordButton4').attr('onClick', '');
+                        $('#newRecordButton5').attr('onClick', '');
+                        $('#newRecordButton6').attr('onClick', '');
+                        $('#newRecordButton7').attr('onClick', '');
+                        if (updateAccess === 1) {
+                            $('#updateRecordButton1').removeClass().addClass('btn btn-info');
+                            $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info');
+                            $('#updateRecordButton3').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1)");
+                            $('#updateRecordButton4').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',2)");
+                            $('#updateRecordButton5').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',3)");
+                        } else {
+                            $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '');
+                            $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled');
+                            $('#updateRecordButton3').attr('onClick', '');
+                            $('#updateRecordButton4').attr('onClick', '');
+                            $('#updateRecordButton5').attr('onClick', '');
+                        }
+                        if (deleteAccess === 1) {
+                            $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', "deleteRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "')");
+                        } else {
+                            $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        } else if (type === 5) {
+            if ($cityId.val().length === 0) {
+                $('#cityIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['cityIdLabel'] + " </span>");
+                $cityId.data('chosen').activate_action();
+                return false;
+            }
+            if ($stateId.val().length === 0) {
+                $('#stateIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['stateIdLabel'] + " </span>");
+                $stateId.data('chosen').activate_action();
+                return false;
+            }
+            if ($countryId.val().length === 0) {
+                $('#countryIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['countryIdLabel'] + " </span>");
+                $countryId.data('chosen').activate_action();
+                return false;
+            }
+            if ($genderId.val().length === 0) {
+                $('#genderIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['genderIdLabel'] + " </span>");
+                $genderId.data('chosen').activate_action();
+                return false;
+            }
+            if ($marriageId.val().length === 0) {
+                $('#marriageIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['marriageIdLabel'] + " </span>");
+                $marriageId.data('chosen').activate_action();
+                return false;
+            }
+            if ($raceId.val().length === 0) {
+                $('#raceIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['raceIdLabel'] + " </span>");
+                $raceId.data('chosen').activate_action();
+                return false;
+            }
+            if ($religionId.val().length === 0) {
+                $('#religionIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['religionIdLabel'] + " </span>");
+                $religionId.data('chosen').activate_action();
+                return false;
+            }
+            if ($candidateFirstName.val().length === 0) {
+                $('#candidateFirstNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFirstNameLabel'] + " </span>");
+                $('#candidateFirstNameForm').removeClass().addClass('form-group has-error');
+                $candidateFirstName.focus();
+                return false;
+            }
+            if ($candidateLastName.val().length === 0) {
+                $('#candidateLastNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLastNameLabel'] + " </span>");
+                $('#candidateLastNameForm').removeClass().addClass('form-group has-error');
+                $candidateLastName.focus();
+                return false;
+            }
+            if ($candidateEmail.val().length === 0) {
+                $('#candidateEmailHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateEmailLabel'] + " </span>");
+                $('#candidateEmailForm').removeClass().addClass('form-group has-error');
+                $candidateEmail.focus();
+                return false;
+            }
+            if ($candidateBusinessPhone.val().length === 0) {
+                $('#candidateBusinessPhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateBusinessPhoneLabel'] + " </span>");
+                $('#candidateBusinessPhoneForm').removeClass().addClass('form-group has-error');
+                $candidateBusinessPhone.focus();
+                return false;
+            }
+            if ($candidateHomePhone.val().length === 0) {
+                $('#candidateHomePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateHomePhoneLabel'] + " </span>");
+                $('#candidateHomePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateHomePhone.focus();
+                return false;
+            }
+            if ($candidateMobilePhone.val().length === 0) {
+                $('#candidateMobilePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateMobilePhoneLabel'] + " </span>");
+                $('#candidateMobilePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateMobilePhone.focus();
+                return false;
+            }
+            if ($candidateFaxNumber.val().length === 0) {
+                $('#candidateFaxNumberHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFaxNumberLabel'] + " </span>");
+                $('#candidateFaxNumberForm').removeClass().addClass('form-group has-error');
+                $candidateFaxNumber.focus();
+                return false;
+            }
+            if ($candidateAddress.val().length === 0) {
+                $('#candidateAddressHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateAddressLabel'] + " </span>");
+                $('#candidateAddressForm').removeClass().addClass('form-group has-error');
+                $candidateAddress.focus();
+                return false;
+            }
+            if ($candidatePostCode.val().length === 0) {
+                $('#candidatePostCodeHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePostCodeLabel'] + " </span>");
+                $('#candidatePostCodeForm').removeClass().addClass('form-group has-error');
+                $candidatePostCode.focus();
+                return false;
+            }
+            if ($candidateWebPage.val().length === 0) {
+                $('#candidateWebPageHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateWebPageLabel'] + " </span>");
+                $('#candidateWebPageForm').removeClass().addClass('form-group has-error');
+                $candidateWebPage.focus();
+                return false;
+            }
+            if ($candidateFacebook.val().length === 0) {
+                $('#candidateFacebookHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFacebookLabel'] + " </span>");
+                $('#candidateFacebookForm').removeClass().addClass('form-group has-error');
+                $candidateFacebook.focus();
+                return false;
+            }
+            if ($candidateTwitter.val().length === 0) {
+                $('#candidateTwitterHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateTwitterLabel'] + " </span>");
+                $('#candidateTwitterForm').removeClass().addClass('form-group has-error');
+                $candidateTwitter.focus();
+                return false;
+            }
+            if ($candidateLinkedIn.val().length === 0) {
+                $('#candidateLinkedInHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLinkedInLabel'] + " </span>");
+                $('#candidateLinkedInForm').removeClass().addClass('form-group has-error');
+                $candidateLinkedIn.focus();
+                return false;
+            }
+            if ($candidateNotes.val().length === 0) {
+                $('#candidateNotesHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateNotesLabel'] + " </span>");
+                $('#candidateNotesForm').removeClass().addClass('form-group has-error');
+                $candidateNotes.focus();
+                return false;
+            }
+            if ($candidatePicture.val().length === 0) {
+                $('#candidatePictureHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePictureLabel'] + " </span>");
+                $('#candidatePictureForm').removeClass().addClass('form-group has-error');
+                $candidatePicture.focus();
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'create',
+                    output: 'json',
+                    cityId: $cityId.val(),
+                    stateId: $stateId.val(),
+                    countryId: $countryId.val(),
+                    genderId: $genderId.val(),
+                    marriageId: $marriageId.val(),
+                    raceId: $raceId.val(),
+                    religionId: $religionId.val(),
+                    
+                    candidateFirstName: $candidateFirstName.val(),
+                    candidateLastName: $candidateLastName.val(),
+                    candidateEmail: $candidateEmail.val(),
+                    candidateBusinessPhone: $candidateBusinessPhone.val(),
+                    candidateHomePhone: $candidateHomePhone.val(),
+                    candidateMobilePhone: $candidateMobilePhone.val(),
+                    candidateFaxNumber: $candidateFaxNumber.val(),
+                    candidateAddress: $candidateAddress.val(),
+                    candidatePostCode: $candidatePostCode.val(),
+                    candidateWebPage: $candidateWebPage.val(),
+                    candidateFacebook: $candidateFacebook.val(),
+                    candidateTwitter: $candidateTwitter.val(),
+                    candidateLinkedIn: $candidateLinkedIn.val(),
+                    candidateNotes: $candidateNotes.val(),
+                    candidatePicture: $candidatePicture.val(),
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var success = data.success;
+                    var message = data.message;
+                    var $infoPanel = $('#infoPanel');
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    if (success === true) {
+                        showGrid(leafId, urlList, securityToken, 0, 10, 1);
+                    } else {
+                        $infoPanel.html('').empty().html("<span class='label label-important'> <img src='" + smileyRollSweat + "'> " + message + "</span>");
+                        if ($infoPanel.is(':hidden')) {
+                            $infoPanel.show();
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        }
+        showMeDiv('tableDate', 0);
+        showMeDiv('formEntry', 1);
+    }
+}
+function updateRecord(leafId, url, urlList, securityToken, type, deleteAccess) {
+    var $infoPanel = $('#infoPanel');
+    var css = $('#updateRecordButton2').attr('class');
+    var $cityId = $('#cityId');
+    var $stateId = $('#stateId');
+    var $countryId = $('#countryId');
+    var $genderId = $('#genderId');
+    var $marriageId = $('#marriageId');
+    var $raceId = $('#raceId');
+    var $religionId = $('#religionId');
+    var $candidateFirstName = $('#candidateFirstName');
+    var $candidateLastName = $('#candidateLastName');
+    var $candidateEmail = $('#candidateEmail');
+    var $candidateBusinessPhone = $('#candidateBusinessPhone');
+    var $candidateHomePhone = $('#candidateHomePhone');
+    var $candidateMobilePhone = $('#candidateMobilePhone');
+    var $candidateFaxNumber = $('#candidateFaxNumber');
+    var $candidateAddress = $('#candidateAddress');
+    var $candidatePostCode = $('#candidatePostCode');
+    var $candidateWebPage = $('#candidateWebPage');
+    var $candidateFacebook = $('#candidateFacebook');
+    var $candidateTwitter = $('#candidateTwitter');
+    var $candidateLinkedIn = $('#candidateLinkedIn');
+    var $candidateNotes = $('#candidateNotes');
+    var $candidatePicture = $('#candidatePicture');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        $infoPanel.empty().html('');
+        if (type === 1) {
+            if ($cityId.val().length === 0) {
+                $('#cityIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['cityIdLabel'] + " </span>");
+                $cityId.data('chosen').activate_action();
+                return false;
+            }
+            if ($stateId.val().length === 0) {
+                $('#stateIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['stateIdLabel'] + " </span>");
+                $stateId.data('chosen').activate_action();
+                return false;
+            }
+            if ($countryId.val().length === 0) {
+                $('#countryIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['countryIdLabel'] + " </span>");
+                $countryId.data('chosen').activate_action();
+                return false;
+            }
+            if ($genderId.val().length === 0) {
+                $('#genderIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['genderIdLabel'] + " </span>");
+                $genderId.data('chosen').activate_action();
+                return false;
+            }
+            if ($marriageId.val().length === 0) {
+                $('#marriageIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['marriageIdLabel'] + " </span>");
+                $marriageId.data('chosen').activate_action();
+                return false;
+            }
+            if ($raceId.val().length === 0) {
+                $('#raceIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['raceIdLabel'] + " </span>");
+                $raceId.data('chosen').activate_action();
+                return false;
+            }
+            if ($religionId.val().length === 0) {
+                $('#religionIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['religionIdLabel'] + " </span>");
+                $religionId.data('chosen').activate_action();
+                return false;
+            }
+            if ($candidateFirstName.val().length === 0) {
+                $('#candidateFirstNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFirstNameLabel'] + " </span>");
+                $('#candidateFirstNameForm').removeClass().addClass('form-group has-error');
+                $candidateFirstName.focus();
+                return false;
+            }
+            if ($candidateEmail.val().length === 0) {
+                $('#candidateEmailHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateEmailLabel'] + " </span>");
+                $('#candidateEmailForm').removeClass().addClass('form-group has-error');
+                $candidateEmail.focus();
+                return false;
+            }
+            if ($candidateBusinessPhone.val().length === 0) {
+                $('#candidateBusinessPhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateBusinessPhoneLabel'] + " </span>");
+                $('#candidateBusinessPhoneForm').removeClass().addClass('form-group has-error');
+                $candidateBusinessPhone.focus();
+                return false;
+            }
+            if ($candidateHomePhone.val().length === 0) {
+                $('#candidateHomePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateHomePhoneLabel'] + " </span>");
+                $('#candidateHomePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateHomePhone.focus();
+                return false;
+            }
+            if ($candidateMobilePhone.val().length === 0) {
+                $('#candidateMobilePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateMobilePhoneLabel'] + " </span>");
+                $('#candidateMobilePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateMobilePhone.focus();
+                return false;
+            }
+            if ($candidateFaxNumber.val().length === 0) {
+                $('#candidateFaxNumberHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFaxNumberLabel'] + " </span>");
+                $('#candidateFaxNumberForm').removeClass().addClass('form-group has-error');
+                $candidateFaxNumber.focus();
+                return false;
+            }
+            if ($candidateAddress.val().length === 0) {
+                $('#candidateAddressHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateAddressLabel'] + " </span>");
+                $('#candidateAddressForm').removeClass().addClass('form-group has-error');
+                $candidateAddress.focus();
+                return false;
+            }
+            if ($candidatePostCode.val().length === 0) {
+                $('#candidatePostCodeHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePostCodeLabel'] + " </span>");
+                $('#candidatePostCodeForm').removeClass().addClass('form-group has-error');
+                $candidatePostCode.focus();
+                return false;
+            }
+            if ($candidateWebPage.val().length === 0) {
+                $('#candidateWebPageHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateWebPageLabel'] + " </span>");
+                $('#candidateWebPageForm').removeClass().addClass('form-group has-error');
+                $candidateWebPage.focus();
+                return false;
+            }
+            if ($candidateFacebook.val().length === 0) {
+                $('#candidateFacebookHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFacebookLabel'] + " </span>");
+                $('#candidateFacebookForm').removeClass().addClass('form-group has-error');
+                $candidateFacebook.focus();
+                return false;
+            }
+            if ($candidateTwitter.val().length === 0) {
+                $('#candidateTwitterHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateTwitterLabel'] + " </span>");
+                $('#candidateTwitterForm').removeClass().addClass('form-group has-error');
+                $candidateTwitter.focus();
+                return false;
+            }
+            if ($candidateLinkedIn.val().length === 0) {
+                $('#candidateLinkedInHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLinkedInLabel'] + " </span>");
+                $('#candidateLinkedInForm').removeClass().addClass('form-group has-error');
+                $candidateLinkedIn.focus();
+                return false;
+            }
+            if ($candidateNotes.val().length === 0) {
+                $('#candidateNotesHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateNotesLabel'] + " </span>");
+                $('#candidateNotesForm').removeClass().addClass('form-group has-error');
+                $candidateNotes.focus();
+                return false;
+            }
+            if ($candidatePicture.val().length === 0) {
+                $('#candidatePictureHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePictureLabel'] + " </span>");
+                $('#candidatePictureForm').removeClass().addClass('form-group has-error');
+                $candidatePicture.focus();
+                return false;
+            }
+            $infoPanel.html('').empty();
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'save',
+                    output: 'json',
+                    candidateId: $candidateId.val(),
+                    cityId: $cityId.val(),
+                    stateId: $stateId.val(),
+                    countryId: $countryId.val(),
+                    genderId: $genderId.val(),
+                    marriageId: $marriageId.val(),
+                    raceId: $raceId.val(),
+                    religionId: $religionId.val(),
+                    
+                    candidateFirstName: $candidateFirstName.val(),
+                    candidateLastName: $candidateLastName.val(),
+                    candidateEmail: $candidateEmail.val(),
+                    candidateBusinessPhone: $candidateBusinessPhone.val(),
+                    candidateHomePhone: $candidateHomePhone.val(),
+                    candidateMobilePhone: $candidateMobilePhone.val(),
+                    candidateFaxNumber: $candidateFaxNumber.val(),
+                    candidateAddress: $candidateAddress.val(),
+                    candidatePostCode: $candidatePostCode.val(),
+                    candidateWebPage: $candidateWebPage.val(),
+                    candidateFacebook: $candidateFacebook.val(),
+                    candidateTwitter: $candidateTwitter.val(),
+                    candidateLinkedIn: $candidateLinkedIn.val(),
+                    candidateNotes: $candidateNotes.val(),
+                    candidatePicture: $candidatePicture.val(),
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var $infoPanel = $('#infoPanel');
+                    var success = data.success;
+                    var message = data.message;
+                    var smileyLol = './images/icons/smiley-lol.png';
+                    if (success === true) {
+                        $infoPanel.html('').empty().html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['updateRecordTextLabel']) + "</span>");
+                        if (deleteAccess === 1) {
+                            $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', "deleteRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + deleteAccess + ")");
+                        } else {
+                            $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                        }
+                    } else if (success === false) {
+                        $infoPanel.empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                        if ($infoPanel.is(':hidden')) {
+                            $infoPanel.show();
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        } else if (type === 3) {
+            if ($cityId.val().length === 0) {
+                $('#cityIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['cityIdLabel'] + " </span>");
+                $cityId.data('chosen').activate_action();
+                return false;
+            }
+            if ($stateId.val().length === 0) {
+                $('#stateIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['stateIdLabel'] + " </span>");
+                $stateId.data('chosen').activate_action();
+                return false;
+            }
+            if ($countryId.val().length === 0) {
+                $('#countryIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['countryIdLabel'] + " </span>");
+                $countryId.data('chosen').activate_action();
+                return false;
+            }
+            if ($genderId.val().length === 0) {
+                $('#genderIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['genderIdLabel'] + " </span>");
+                $genderId.data('chosen').activate_action();
+                return false;
+            }
+            if ($marriageId.val().length === 0) {
+                $('#marriageIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['marriageIdLabel'] + " </span>");
+                $marriageId.data('chosen').activate_action();
+                return false;
+            }
+            if ($raceId.val().length === 0) {
+                $('#raceIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['raceIdLabel'] + " </span>");
+                $raceId.data('chosen').activate_action();
+                return false;
+            }
+            if ($religionId.val().length === 0) {
+                $('#religionIdHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['religionIdLabel'] + " </span>");
+                $religionId.data('chosen').activate_action();
+                return false;
+            }
+            if ($candidateFirstName.val().length === 0) {
+                $('#candidateFirstNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFirstNameLabel'] + " </span>");
+                $('#candidateFirstNameForm').removeClass().addClass('form-group has-error');
+                $candidateFirstName.focus();
+                return false;
+            }
+            if ($candidateLastName.val().length === 0) {
+                $('#candidateLastNameHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLastNameLabel'] + " </span>");
+                $('#candidateLastNameForm').removeClass().addClass('form-group has-error');
+                $candidateLastName.focus();
+                return false;
+            }
+            if ($candidateEmail.val().length === 0) {
+                $('#candidateEmailHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateEmailLabel'] + " </span>");
+                $('#candidateEmailForm').removeClass().addClass('form-group has-error');
+                $candidateEmail.focus();
+                return false;
+            }
+            if ($candidateBusinessPhone.val().length === 0) {
+                $('#candidateBusinessPhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateBusinessPhoneLabel'] + " </span>");
+                $('#candidateBusinessPhoneForm').removeClass().addClass('form-group has-error');
+                $candidateBusinessPhone.focus();
+                return false;
+            }
+            if ($candidateHomePhone.val().length === 0) {
+                $('#candidateHomePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateHomePhoneLabel'] + " </span>");
+                $('#candidateHomePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateHomePhone.focus();
+                return false;
+            }
+            if ($candidateMobilePhone.val().length === 0) {
+                $('#candidateMobilePhoneHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateMobilePhoneLabel'] + " </span>");
+                $('#candidateMobilePhoneForm').removeClass().addClass('form-group has-error');
+                $candidateMobilePhone.focus();
+                return false;
+            }
+            if ($candidateFaxNumber.val().length === 0) {
+                $('#candidateFaxNumberHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFaxNumberLabel'] + " </span>");
+                $('#candidateFaxNumberForm').removeClass().addClass('form-group has-error');
+                $candidateFaxNumber.focus();
+                return false;
+            }
+            if ($candidateAddress.val().length === 0) {
+                $('#candidateAddressHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateAddressLabel'] + " </span>");
+                $('#candidateAddressForm').removeClass().addClass('form-group has-error');
+                $candidateAddress.focus();
+                return false;
+            }
+            if ($candidatePostCode.val().length === 0) {
+                $('#candidatePostCodeHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePostCodeLabel'] + " </span>");
+                $('#candidatePostCodeForm').removeClass().addClass('form-group has-error');
+                $candidatePostCode.focus();
+                return false;
+            }
+            if ($candidateWebPage.val().length === 0) {
+                $('#candidateWebPageHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateWebPageLabel'] + " </span>");
+                $('#candidateWebPageForm').removeClass().addClass('form-group has-error');
+                $candidateWebPage.focus();
+                return false;
+            }
+            if ($candidateFacebook.val().length === 0) {
+                $('#candidateFacebookHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateFacebookLabel'] + " </span>");
+                $('#candidateFacebookForm').removeClass().addClass('form-group has-error');
+                $candidateFacebook.focus();
+                return false;
+            }
+            if ($candidateTwitter.val().length === 0) {
+                $('#candidateTwitterHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateTwitterLabel'] + " </span>");
+                $('#candidateTwitterForm').removeClass().addClass('form-group has-error');
+                $candidateTwitter.focus();
+                return false;
+            }
+            if ($candidateLinkedIn.val().length === 0) {
+                $('#candidateLinkedInHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateLinkedInLabel'] + " </span>");
+                $('#candidateLinkedInForm').removeClass().addClass('form-group has-error');
+                $candidateLinkedIn.focus();
+                return false;
+            }
+            if ($candidateNotes.val().length === 0) {
+                $('#candidateNotesHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidateNotesLabel'] + " </span>");
+                $('#candidateNotesForm').removeClass().addClass('form-group has-error');
+                $candidateNotes.focus();
+                return false;
+            }
+            if ($candidatePicture.val().length === 0) {
+                $('#candidatePictureHelpMe').html('').empty().html("<span class='label label-important'>&nbsp;" + decodeURIComponent(t['requiredTextLabel']) + " : " + leafTranslation['candidatePictureLabel'] + " </span>");
+                $('#candidatePictureForm').removeClass().addClass('form-group has-error');
+                $candidatePicture.focus();
+                return false;
+            }
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'save',
+                    output: 'json',
+                    candidateId: $candidateId.val(),
+                    cityId: $cityId.val(),
+                    stateId: $stateId.val(),
+                    countryId: $countryId.val(),
+                    genderId: $genderId.val(),
+                    marriageId: $marriageId.val(),
+                    raceId: $raceId.val(),
+                    religionId: $religionId.val(),
+                    
+                    candidateFirstName: $candidateFirstName.val(),
+                    candidateLastName: $candidateLastName.val(),
+                    candidateEmail: $candidateEmail.val(),
+                    candidateBusinessPhone: $candidateBusinessPhone.val(),
+                    candidateHomePhone: $candidateHomePhone.val(),
+                    candidateMobilePhone: $candidateMobilePhone.val(),
+                    candidateFaxNumber: $candidateFaxNumber.val(),
+                    candidateAddress: $candidateAddress.val(),
+                    candidatePostCode: $candidatePostCode.val(),
+                    candidateWebPage: $candidateWebPage.val(),
+                    candidateFacebook: $candidateFacebook.val(),
+                    candidateTwitter: $candidateTwitter.val(),
+                    candidateLinkedIn: $candidateLinkedIn.val(),
+                    candidateNotes: $candidateNotes.val(),
+                    candidatePicture: $candidatePicture.val(),
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var $infoPanel = $('#infoPanel');
+                    var success = data.success;
+                    var message = data.message;
+                    var smileyLol = './images/icons/smiley-lol.png';
+                    if (success === true) {
+                        $infoPanel.html("<span class='label label-success'>&nbsp;<img src='" + smileyLol + "'> " + decodeURIComponent(t['loadingCompleteTextLabel']) + "</span>").delay(1000).fadeOut();
+                        showGrid(leafId, urlList, securityToken, 0, 10, 1);
+                    } else if (success === false) {
+                        $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                    }
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        }
+    }
+}
+function deleteRecord(leafId, url, urlList, securityToken, deleteAccess) {
+    var $infoPanel = $('#infoPanel');
+    var $candidateId = $('#candidateId');
+    var css = $('#deleteRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        if (deleteAccess === 1) {
+            if (confirm(decodeURIComponent(t['deleteRecordMessageLabel']))) {
+                var value = $candidateId.val();
+                if (!value) {
+                    $infoPanel.html('').empty().html("<span class='label label-important'> " + decodeURIComponent(t['loadingErrorTextLabel']) + "<span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                    return false;
+                } else {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: {
+                            method: 'delete',
+                            output: 'json',
+                            candidateId: $candidateId.val(),
+                            securityToken: securityToken,
+                            leafId: leafId
+                        },
+                        beforeSend: function() {
+                            var smileyRoll = './images/icons/smiley-roll.png';
+                            var $infoPanel = $('#infoPanel');
+                            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                            if ($infoPanel.is(':hidden')) {
+                                $infoPanel.show();
+                            }
+                        },
+                        success: function(data) {
+                            var $infoPanel = $('#infoPanel');
+                            var success = data.success;
+                            var message = data.message;
+                            if (success === true) {
+                                showGrid(leafId, urlList, securityToken, 0, 10, 2);
+                            } else if (success === false) {
+                                $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                                if ($infoPanel.is(':hidden')) {
+                                    $infoPanel.show();
+                                }
+                            }
+                        },
+                        error: function(xhr) {
+                            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                        }
+                    });
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+}
+function resetRecord(leafId, url, urlList, securityToken, createAccess, updateAccess, deleteAccess) {
+    var $infoPanel = $('#infoPanel');
+    var resetIcon = './images/icons/fruit-orange.png';
+    $infoPanel.html('').empty().html("<span class='label label-important'><img src='" + resetIcon + "'> " + decodeURIComponent(t['resetRecordTextLabel']) + "</span>").delay(1000).fadeOut();
+    if ($infoPanel.is(':hidden')) {
+        $infoPanel.show();
+    }
+    if (createAccess === 1) {
+        $('#newRecordButton1').removeClass().addClass('btn btn-success').attr("onClick", "newRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1)");
+        $('#newRecordButton2').attr('onClick', '').removeClass().addClass('btn dropdown-toggle btn-success');
+        $('#newRecordButton3').attr("onClick", "newRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1)");
+        $('#newRecordButton4').attr("onClick", "newRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',2)");
+        $('#newRecordButton5').attr("onClick", "newRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',3)");
+        $('#newRecordButton6').attr("onClick", "newRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',4)");
+        $('#newRecordButton7').attr("onClick", "newRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',5)");
+    } else {
+        $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+        $('#newRecordButton2').removeClass().addClass('btn dropdown-toggle btn-success disabled');
+        $('#newRecordButton3').attr('onClick', '');
+        $('#newRecordButton4').attr('onClick', '');
+        $('#newRecordButton5').attr('onClick', '');
+        $('#newRecordButton6').attr('onClick', '');
+        $('#newRecordButton7').attr('onClick', '');
+    }
+    $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '').attr('onClick', '');
+    $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled').attr('onClick', '');
+    $('#updateRecordButton3').attr('onClick', '');
+    $('#updateRecordButton4').attr('onClick', '');
+    $('#updateRecordButton5').attr('onClick', '');
+    $('#deleteRecordButton').removeClass().addClass('btn btn-danger disabled').attr('onClick', '');
+    $('#postRecordButton').removeClass().addClass('btn btn-info').attr('onClick', '');
+    $('#firstRecordButton').removeClass().addClass('btn btn-default').attr('onClick', "firstRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + updateAccess + "," + deleteAccess + ")");
+    $('#previousRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+    $('#nextRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+    $('#endRecordButton').removeClass().addClass('btn btn-default').attr('onClick', "endRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + updateAccess + ")");
+    $("#candidateId").val('');
+    $("#candidateIdHelpMe").empty().html('');
+    
+    $("#cityId").val('');
+    $("#cityIdHelpMe").empty().html('');
+    $('#cityId').trigger("chosen:updated");
+    $("#stateId").val('');
+    $("#stateIdHelpMe").empty().html('');
+    $('#stateId').trigger("chosen:updated");
+    $("#countryId").val('');
+    $("#countryIdHelpMe").empty().html('');
+    $('#countryId').trigger("chosen:updated");
+    $("#genderId").val('');
+    $("#genderIdHelpMe").empty().html('');
+    $('#genderId').trigger("chosen:updated");
+    $("#marriageId").val('');
+    $("#marriageIdHelpMe").empty().html('');
+    $('#marriageId').trigger("chosen:updated");
+    $("#raceId").val('');
+    $("#raceIdHelpMe").empty().html('');
+    $('#raceId').trigger("chosen:updated");
+    $("#religionId").val('');
+    $("#religionIdHelpMe").empty().html('');
+    $('#religionId').trigger("chosen:updated");
+    $("#documentNumber").val('');
+    $("#documentNumberHelpMe").empty().html('');
+    $("#candidateFirstName").val('');
+    $("#candidateFirstNameHelpMe").empty().html('');
+    $("#candidateLastName").val('');
+    $("#candidateLastNameHelpMe").empty().html('');
+    $("#candidateEmail").val('');
+    $("#candidateEmailHelpMe").empty().html('');
+    $("#candidateBusinessPhone").val('');
+    $("#candidateBusinessPhoneHelpMe").empty().html('');
+    $("#candidateHomePhone").val('');
+    $("#candidateHomePhoneHelpMe").empty().html('');
+    $("#candidateMobilePhone").val('');
+    $("#candidateMobilePhoneHelpMe").empty().html('');
+    $("#candidateFaxNumber").val('');
+    $("#candidateFaxNumberHelpMe").empty().html('');
+    $("#candidateAddress").val('');
+    $("#candidateAddressHelpMe").empty().html('');
+    $('#candidateAddress').empty().val('');
+    $("#candidatePostCode").val('');
+    $("#candidatePostCodeHelpMe").empty().html('');
+    $("#candidateWebPage").val('');
+    $("#candidateWebPageHelpMe").empty().html('');
+    $("#candidateFacebook").val('');
+    $("#candidateFacebookHelpMe").empty().html('');
+    $("#candidateTwitter").val('');
+    $("#candidateTwitterHelpMe").empty().html('');
+    $("#candidateLinkedIn").val('');
+    $("#candidateLinkedInHelpMe").empty().html('');
+    $("#candidateNotes").val('');
+    $("#candidateNotesHelpMe").empty().html('');
+    $("#candidatePicture").val('');
+    $("#candidatePictureHelpMe").empty().html('');
+}
+function postRecord() {
+    var css = $('#postRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        return false;
+    }
+}
+function firstRecord(leafId, url, urlList, securityToken, updateAccess, deleteAccess) {
+    var css = $('#firstRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: {
+                method: 'dataNavigationRequest',
+                dataNavigation: 'firstRecord',
+                output: 'json',
+                securityToken: securityToken,
+                leafId: leafId
+            },
+            beforeSend: function() {
+                var smileyRoll = './images/icons/smiley-roll.png';
+                var $infoPanel = $('#infoPanel');
+                $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                if ($infoPanel.is(':hidden')) {
+                    $infoPanel.show();
+                }
+            },
+            success: function(data) {
+                var $infoPanel = $('#infoPanel');
+                var success = data.success;
+                var firstRecord = data.firstRecord;
+                var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                var smileyRoll = './images/icons/smiley-roll.png';
+                if (firstRecord === 0) {
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['recordNotFoundLabel']) + "</span>");
+                    return false;
+                }
+                if (success === true) {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: {
+                            method: 'read',
+                            candidateId: firstRecord,
+                            output: 'json',
+                            securityToken: securityToken,
+                            leafId: leafId
+                        },
+                        beforeSend: function() {
+                            var smileyRoll = './images/icons/smiley-roll.png';
+                            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                            if ($infoPanel.is(':hidden')) {
+                                $infoPanel.show();
+                            }
+                        },
+                        success: function(data) {
+                            var x,
+                                    output;
+                            var success = data.success;
+                            var $infoPanel = $('#infoPanel');
+                            var lastRecord = data.lastRecord;
+                            var nextRecord = data.nextRecord;
+                            var previousRecord = data.previousRecord;
+                            if (success === true) {
+                                $('#candidateId').val(data.data.candidateId);
+                                $('#cityId').val(data.data.cityId).trigger("chosen:updated");
+                                $('#stateId').val(data.data.stateId).trigger("chosen:updated");
+                                $('#countryId').val(data.data.countryId).trigger("chosen:updated");
+                                $('#genderId').val(data.data.genderId).trigger("chosen:updated");
+                                $('#marriageId').val(data.data.marriageId).trigger("chosen:updated");
+                                $('#raceId').val(data.data.raceId).trigger("chosen:updated");
+                                $('#religionId').val(data.data.religionId).trigger("chosen:updated");
+                                $('#documentNumber').val(data.data.documentNumber);
+                                $('#candidateFirstName').val(data.data.candidateFirstName);
+                                $('#candidateLastName').val(data.data.candidateLastName);
+                                $('#candidateEmail').val(data.data.candidateEmail);
+                                $('#candidateBusinessPhone').val(data.data.candidateBusinessPhone);
+                                $('#candidateHomePhone').val(data.data.candidateHomePhone);
+                                $('#candidateMobilePhone').val(data.data.candidateMobilePhone);
+                                $('#candidateFaxNumber').val(data.data.candidateFaxNumber);
+                                $('#candidateAddress').val(data.data.candidateAddress);
+                                $('#candidatePostCode').val(data.data.candidatePostCode);
+                                $('#candidateWebPage').val(data.data.candidateWebPage);
+                                $('#candidateFacebook').val(data.data.candidateFacebook);
+                                $('#candidateTwitter').val(data.data.candidateTwitter);
+                                $('#candidateLinkedIn').val(data.data.candidateLinkedIn);
+                                $('#candidateNotes').val(data.data.candidateNotes);
+                                $('#candidatePicture').val(data.data.candidatePicture);
+                                if (nextRecord > 0) {
+                                    $('#previousRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+                                    $('#nextRecordButton').removeClass().addClass('btn btn-default').attr('onClick', '').attr('onClick', "nextRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + updateAccess + "," + deleteAccess + ")");
+                                    $('#firstRecordCounter').val(firstRecord);
+                                    $('#previousRecordCounter').val(previousRecord);
+                                    $('#nextRecordCounter').val(nextRecord);
+                                    $('#lastRecordCounter').val(lastRecord);
+                                    $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+                                    $('#newRecordButton2').removeClass().addClass('btn dropdown-toggle btn-success disabled');
+                                    $('#newRecordButton3').attr('onClick', '');
+                                    $('#newRecordButton4').attr('onClick', '');
+                                    $('#newRecordButton5').attr('onClick', '');
+                                    $('#newRecordButton6').attr('onClick', '');
+                                    $('#newRecordButton7').attr('onClick', '');
+                                    if (updateAccess === 1) {
+                                        $('#updateRecordButton1').removeClass().addClass('btn btn-info');
+                                        $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info');
+                                        $('#updateRecordButton3').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1," + deleteAccess + ")");
+                                        $('#updateRecordButton4').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',2," + deleteAccess + ")");
+                                        $('#updateRecordButton5').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',3," + deleteAccess + ")");
+                                    } else {
+                                        $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '');
+                                        $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled');
+                                        $('#updateRecordButton3').attr('onClick', '');
+                                        $('#updateRecordButton4').attr('onClick', '');
+                                        $('#updateRecordButton5').attr('onClick', '');
+                                    }
+                                    if (deleteAccess === 1) {
+                                        $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '').attr('onClick', "deleteRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + deleteAccess + ")");
+                                    } else {
+                                        $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                                    }
+                                }
+                                var startIcon = './images/icons/control-stop.png';
+                                $infoPanel.html('').empty().html("&nbsp;<img src='" + startIcon + "'> " + decodeURIComponent(t['firstButtonLabel']) + " ");
+                                if ($infoPanel.is(':hidden')) {
+                                    $infoPanel.show();
+                                }
+                            }
+                        },
+                        error: function(xhr) {
+                            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                        }
+                    });
+                } else {
+                    $infoPanel.html('').empty().html("<span class='label label-important'>&nbsp;<img src='" + smileyRollSweat + "'> " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                }
+            },
+            error: function(xhr) {
+                var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+            }
+        });
+    }
+}
+function endRecord(leafId, url, urlList, securityToken, updateAccess, deleteAccess) {
+    var $infoPanel = $('#infoPanel');
+    var css = $('#endRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: {
+                method: 'dataNavigationRequest',
+                dataNavigation: 'lastRecord',
+                output: 'json',
+                securityToken: securityToken,
+                leafId: leafId
+            },
+            beforeSend: function() {
+                var smileyRoll = './images/icons/smiley-roll.png';
+                var $infoPanel = $('#infoPanel');
+                $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                if ($infoPanel.is(':hidden')) {
+                    $infoPanel.show();
+                }
+            },
+            success: function(data) {
+                var success = data.success;
+                var message = data.message;
+                var lastRecord = data.lastRecord;
+                var smileyRoll = './images/icons/smiley-roll.png';
+                if (lastRecord === 0) {
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['recordNotFoundLabel']) + "</span>");
+                    return false;
+                }
+                if (success === true) {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: {
+                            method: 'read',
+                            candidateId: lastRecord,
+                            output: 'json',
+                            securityToken: securityToken,
+                            leafId: leafId
+                        },
+                        beforeSend: function() {
+                            var smileyRoll = './images/icons/smiley-roll.png';
+                            $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                            if ($infoPanel.is(':hidden')) {
+                                $infoPanel.show();
+                            }
+                        },
+                        success: function(data) {
+                            var x,
+                                    output;
+                            var success = data.success;
+                            var firstRecord = data.firstRecord;
+                            var lastRecord = data.lastRecord;
+                            var nextRecord = data.nextRecord;
+                            var previousRecord = data.previousRecord;
+                            if (success === true) {
+                                $('#candidateId').val(data.data.candidateId);
+                                $('#cityId').val(data.data.cityId).trigger("chosen:updated");
+                                $('#stateId').val(data.data.stateId).trigger("chosen:updated");
+                                $('#countryId').val(data.data.countryId).trigger("chosen:updated");
+                                $('#genderId').val(data.data.genderId).trigger("chosen:updated");
+                                $('#marriageId').val(data.data.marriageId).trigger("chosen:updated");
+                                $('#raceId').val(data.data.raceId).trigger("chosen:updated");
+                                $('#religionId').val(data.data.religionId).trigger("chosen:updated");
+                                $('#documentNumber').val(data.data.documentNumber);
+                                $('#candidateFirstName').val(data.data.candidateFirstName);
+                                $('#candidateLastName').val(data.data.candidateLastName);
+                                $('#candidateEmail').val(data.data.candidateEmail);
+                                $('#candidateBusinessPhone').val(data.data.candidateBusinessPhone);
+                                $('#candidateHomePhone').val(data.data.candidateHomePhone);
+                                $('#candidateMobilePhone').val(data.data.candidateMobilePhone);
+                                $('#candidateFaxNumber').val(data.data.candidateFaxNumber);
+                                $('#candidateAddress').val(data.data.candidateAddress);
+                                ;
+                                $('#candidatePostCode').val(data.data.candidatePostCode);
+                                $('#candidateWebPage').val(data.data.candidateWebPage);
+                                $('#candidateFacebook').val(data.data.candidateFacebook);
+                                $('#candidateTwitter').val(data.data.candidateTwitter);
+                                $('#candidateLinkedIn').val(data.data.candidateLinkedIn);
+                                $('#candidateNotes').val(data.data.candidateNotes);
+                                $('#candidatePicture').val(data.data.candidatePicture);
+                                if (lastRecord !== 0) {
+                                    $('#previousRecordButton').removeClass().addClass('btn btn-default').attr('onClick', "previousRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + updateAccess + "," + deleteAccess + ")");
+                                    $('#nextRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+                                    $('#firstRecordCounter').val(firstRecord);
+                                    $('#previousRecordCounter').val(previousRecord);
+                                    $('#nextRecordCounter').val(nextRecord);
+                                    $('#lastRecordCounter').val(lastRecord);
+                                    $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+                                    $('#newRecordButton2').removeClass().addClass('btn dropdown-toggle btn-success disabled');
+                                    $('#newRecordButton3').attr('onClick', '');
+                                    $('#newRecordButton4').attr('onClick', '');
+                                    $('#newRecordButton5').attr('onClick', '');
+                                    $('#newRecordButton6').attr('onClick', '');
+                                    $('#newRecordButton7').attr('onClick', '');
+                                    if (updateAccess === 1) {
+                                        $('#updateRecordButton1').removeClass().addClass('btn btn-info').attr('onClick', '').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1," + deleteAccess + ")");
+                                        $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info').attr('onClick', '');
+                                        $('#updateRecordButton3').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1," + deleteAccess + ")");
+                                        $('#updateRecordButton4').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',2," + deleteAccess + ")");
+                                        $('#updateRecordButton5').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',3," + deleteAccess + ")");
+                                    } else {
+                                        $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '').attr('onClick', '');
+                                        $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled').attr('onClick', '');
+                                        $('#updateRecordButton3').attr('onClick', '');
+                                        $('#updateRecordButton4').attr('onClick', '');
+                                        $('#updateRecordButton5').attr('onClick', '');
+                                    }
+                                    if (deleteAccess === 1) {
+                                        $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', "deleteRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + deleteAccess + ")");
+                                    } else {
+                                        $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                                    }
+                                }
+                            }
+                        },
+                        error: function(xhr) {
+                            var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                            $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                            $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                        }
+                    });
+                } else {
+                    $infoPanel.html("<span class='label label-important'>&nbsp;" + message + "</span>");
+                }
+                var endIcon = './images/icons/control-stop-180.png';
+                $infoPanel.html('').empty().html("&nbsp;<img src='" + endIcon + "'> " + decodeURIComponent(t['endButtonLabel']) + " ");
+            },
+            error: function(xhr) {
+                var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+            }
+        });
+    }
+}
+function previousRecord(leafId, url, urlList, securityToken, updateAccess, deleteAccess) {
+    var $previousRecordCounter = $('#previousRecordCounter');
+    var $infoPanel = $('#infoPanel');
+    var css = $('#previousRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        $('#newButton').removeClass();
+        if ($previousRecordCounter.val() === '' || $previousRecordCounter.val() === undefined) {
+            $infoPanel.html('').empty().html("<span class='label label-important'>" + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        }
+        if (parseFloat($previousRecordCounter.val()) > 0 && parseFloat($previousRecordCounter.val()) < parseFloat($('#lastRecordCounter').val())) {
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'read',
+                    candidateId: $previousRecordCounter.val(),
+                    output: 'json',
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var x,
+                            output;
+                    var success = data.success;
+                    var firstRecord = data.firstRecord;
+                    var lastRecord = data.lastRecord;
+                    var nextRecord = data.nextRecord;
+                    var previousRecord = data.previousRecord;
+                    var $infoPanel = $('#infoPanel');
+                    if (success === true) {
+                        $('#candidateId').val(data.data.candidateId);
+                        $('#cityId').val(data.data.cityId).trigger("chosen:updated");
+                        $('#stateId').val(data.data.stateId).trigger("chosen:updated");
+                        $('#countryId').val(data.data.countryId).trigger("chosen:updated");
+                        $('#genderId').val(data.data.genderId).trigger("chosen:updated");
+                        $('#marriageId').val(data.data.marriageId).trigger("chosen:updated");
+                        $('#raceId').val(data.data.raceId).trigger("chosen:updated");
+                        $('#religionId').val(data.data.religionId).trigger("chosen:updated");
+                        $('#documentNumber').val(data.data.documentNumber);
+                        $('#candidateFirstName').val(data.data.candidateFirstName);
+                        $('#candidateLastName').val(data.data.candidateLastName);
+                        $('#candidateEmail').val(data.data.candidateEmail);
+                        $('#candidateBusinessPhone').val(data.data.candidateBusinessPhone);
+                        $('#candidateHomePhone').val(data.data.candidateHomePhone);
+                        $('#candidateMobilePhone').val(data.data.candidateMobilePhone);
+                        $('#candidateFaxNumber').val(data.data.candidateFaxNumber);
+                        $('#candidateAddress').val(data.data.candidateAddress);
+                        ;
+                        $('#candidatePostCode').val(data.data.candidatePostCode);
+                        $('#candidateWebPage').val(data.data.candidateWebPage);
+                        $('#candidateFacebook').val(data.data.candidateFacebook);
+                        $('#candidateTwitter').val(data.data.candidateTwitter);
+                        $('#candidateLinkedIn').val(data.data.candidateLinkedIn);
+                        $('#candidateNotes').val(data.data.candidateNotes);
+                        $('#candidatePicture').val(data.data.candidatePicture);
+                        $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+                        $('#newRecordButton2').removeClass().addClass('btn dropdown-toggle btn-success disabled').attr('onClick', '');
+                        $('#newRecordButton3').attr('onClick', '');
+                        $('#newRecordButton4').attr('onClick', '');
+                        $('#newRecordButton5').attr('onClick', '');
+                        $('#newRecordButton6').attr('onClick', '');
+                        $('#newRecordButton7').attr('onClick', '');
+                        $('#updateRecordButton1').removeClass().addClass('btn btn-info').attr('onClick', '').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1," + deleteAccess + ")");
+                        $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info').attr('onClick', '');
+                        $('#updateRecordButton3').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1," + deleteAccess + ")");
+                        $('#updateRecordButton4').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',2," + deleteAccess + ")");
+                        $('#updateRecordButton5').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',3," + deleteAccess + ")");
+                    } else {
+                        $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '');
+                        $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled');
+                        $('#updateRecordButton3').attr('onClick', '');
+                        $('#updateRecordButton4').attr('onClick', '');
+                        $('#updateRecordButton5').attr('onClick', '');
+                    }
+                    if (deleteAccess === 1) {
+                        $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', "deleteRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + deleteAccess + ")");
+                    } else {
+                        $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                    }
+                    $('#firstRecordCounter').val(firstRecord);
+                    $('#previousRecordCounter').val(previousRecord);
+                    $('#nextRecordCounter').val(nextRecord);
+                    $('#lastRecordCounter').val(lastRecord);
+                    if (parseFloat(nextRecord) <= parseFloat(lastRecord)) {
+                        $('#nextRecordButton').removeClass().addClass('btn btn-default').attr('onClick', '').attr('onClick', "nextRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + updateAccess + "," + deleteAccess + ")");
+                    } else {
+                        $('#nextRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+                    }
+                    if (parseFloat(previousRecord) === 0) {
+                        var exclamationIcon = './images/icons/exclamation.png';
+                        $infoPanel.html('').empty().html("&nbsp;<img src='" + exclamationIcon + "'> " + decodeURIComponent(t['firstButtonLabel']) + " ");
+                        $('#previousRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+                    } else {
+                        var control = './images/icons/control-180.png';
+                        $infoPanel.html('').empty().html("&nbsp;<img src='" + control + "'> " + decodeURIComponent(t['previousButtonLabel']) + " ");
+                        if ($infoPanel.is(':hidden')) {
+                            $infoPanel.show();
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').empty().html('').html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        }
+    }
+}
+function nextRecord(leafId, url, urlList, securityToken, updateAccess, deleteAccess) {
+    var $infoPanel = $('#infoPanel');
+    var $nextRecordCounter = $('#nextRecordCounter');
+    var css = $('#nextRecordButton').attr('class');
+    if (css.search('disabled') > 0) {
+        return false;
+    } else {
+        $('#newButton').removeClass();
+        if ($nextRecordCounter.val() === '' || $nextRecordCounter.val() === undefined) {
+            $infoPanel.html('').empty().html("<span class='label label-important'> " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+            if ($infoPanel.is(':hidden')) {
+                $infoPanel.show();
+            }
+        }
+        if (parseFloat($nextRecordCounter.val()) <= parseFloat($('#lastRecordCounter').val())) {
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    method: 'read',
+                    candidateId: $nextRecordCounter.val(),
+                    output: 'json',
+                    securityToken: securityToken,
+                    leafId: leafId
+                },
+                beforeSend: function() {
+                    var smileyRoll = './images/icons/smiley-roll.png';
+                    var $infoPanel = $('#infoPanel');
+                    $infoPanel.html('').empty().html("<span class='label label-warning'>&nbsp;<img src='" + smileyRoll + "'> " + decodeURIComponent(t['loadingTextLabel']) + "</span>");
+                    if ($infoPanel.is(':hidden')) {
+                        $infoPanel.show();
+                    }
+                },
+                success: function(data) {
+                    var $infoPanel = $('#infoPanel');
+                    var x,
+                            output;
+                    var success = data.success;
+                    var firstRecord = data.firstRecord;
+                    var lastRecord = data.lastRecord;
+                    var nextRecord = data.nextRecord;
+                    var previousRecord = data.previousRecord;
+                    if (success === true) {
+                        $('#candidateId').val(data.data.candidateId);
+                        $('#cityId').val(data.data.cityId).trigger("chosen:updated");
+                        $('#stateId').val(data.data.stateId).trigger("chosen:updated");
+                        $('#countryId').val(data.data.countryId).trigger("chosen:updated");
+                        $('#genderId').val(data.data.genderId).trigger("chosen:updated");
+                        $('#marriageId').val(data.data.marriageId).trigger("chosen:updated");
+                        $('#raceId').val(data.data.raceId).trigger("chosen:updated");
+                        $('#religionId').val(data.data.religionId).trigger("chosen:updated");
+                        $('#documentNumber').val(data.data.documentNumber);
+                        $('#candidateFirstName').val(data.data.candidateFirstName);
+                        $('#candidateLastName').val(data.data.candidateLastName);
+                        $('#candidateEmail').val(data.data.candidateEmail);
+                        $('#candidateBusinessPhone').val(data.data.candidateBusinessPhone);
+                        $('#candidateHomePhone').val(data.data.candidateHomePhone);
+                        $('#candidateMobilePhone').val(data.data.candidateMobilePhone);
+                        $('#candidateFaxNumber').val(data.data.candidateFaxNumber);
+                        $('#candidateAddress').val(data.data.candidateAddress);
+                        $('#candidatePostCode').val(data.data.candidatePostCode);
+                        $('#candidateWebPage').val(data.data.candidateWebPage);
+                        $('#candidateFacebook').val(data.data.candidateFacebook);
+                        $('#candidateTwitter').val(data.data.candidateTwitter);
+                        $('#candidateLinkedIn').val(data.data.candidateLinkedIn);
+                        $('#candidateNotes').val(data.data.candidateNotes);
+                        $('#candidatePicture').val(data.data.candidatePicture);
+                        $('#newRecordButton1').removeClass().addClass('btn btn-success disabled').attr('onClick', '');
+                        $('#newRecordButton2').removeClass().addClass('btn dropdown-toggle btn-success disabled');
+                        $('#newRecordButton3').attr('onClick', '');
+                        $('#newRecordButton4').attr('onClick', '');
+                        $('#newRecordButton5').attr('onClick', '');
+                        $('#newRecordButton6').attr('onClick', '');
+                        $('#newRecordButton7').attr('onClick', '');
+                        if (updateAccess === 1) {
+                            $('#updateRecordButton1').removeClass().addClass('btn btn-info').attr('onClick', '').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1," + deleteAccess + ")");
+                            $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info').attr('onClick', '');
+                            $('#updateRecordButton3').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',1,'" + deleteAccess + ")");
+                            $('#updateRecordButton4').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',2,'" + deleteAccess + ")");
+                            $('#updateRecordButton5').attr('onClick', "updateRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "',3,'" + deleteAccess + ")");
+                        } else {
+                            $('#updateRecordButton1').removeClass().addClass('btn btn-info disabled').attr('onClick', '');
+                            $('#updateRecordButton2').removeClass().addClass('btn dropdown-toggle btn-info disabled');
+                            $('#updateRecordButton3').attr('onClick', '');
+                            $('#updateRecordButton4').attr('onClick', '');
+                            $('#updateRecordButton5').attr('onClick', '');
+                        }
+                        if (deleteAccess === 1) {
+                            $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', "deleteRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + deleteAccess + ")");
+                        } else {
+                            $('#deleteRecordButton').removeClass().addClass('btn btn-danger').attr('onClick', '');
+                        }
+                        $('#firstRecordCounter').val(firstRecord);
+                        $('#previousRecordCounter').val(previousRecord);
+                        $('#nextRecordCounter').val(nextRecord);
+                        $('#lastRecordCounter').val(lastRecord);
+                        if (parseFloat(previousRecord) > 0) {
+                            $('#previousRecordButton').removeClass().addClass('btn btn-default').attr('onClick', "previousRecord(" + leafId + ",'" + url + "','" + urlList + "','" + securityToken + "'," + updateAccess + "," + deleteAccess + ")");
+                        } else {
+                            $('#previousRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+                        }
+                        if (parseFloat(nextRecord) === 0) {
+                            var exclamationIcon = './images/icons/exclamation.png';
+                            $('#nextRecordButton').removeClass().addClass('btn btn-default disabled').attr('onClick', '');
+                            $infoPanel.html('').empty().html("&nbsp;<img src='" + exclamationIcon + "'> " + decodeURIComponent(t['endButtonLabel']) + " ");
+                        } else {
+                            var controlIcon = './images/icons/control.png';
+                            $infoPanel.html('').empty().html("&nbsp;<img src='" + controlIcon + "'> " + decodeURIComponent(t['nextButtonLabel']) + " ");
+                        }
+                        if ($infoPanel.is(':hidden')) {
+                            $infoPanel.show();
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    var smileyRollSweat = './images/icons/smiley-roll-sweat.png';
+                    $('#infoError').html('').empty().html("<span class='alert alert-error col-xs-12 col-sm-12 col-md-12'><img src='" + smileyRollSweat + "'><strong>" + xhr.status + "</strong> : " + decodeURIComponent(t['loadingErrorTextLabel']) + "</span>");
+                    $('#infoErrorRowFluid').removeClass().addClass('row-fluid');
+                }
+            });
+        }
+    }
+}
